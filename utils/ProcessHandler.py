@@ -11,7 +11,7 @@ from pymem import Pymem
 from pymem.process import module_from_name
 from pymem.exception import ProcessNotFound
 from functools import wraps
-
+import ctypes
 
 class ProcessHandler():
     '''
@@ -30,6 +30,13 @@ class ProcessHandler():
                 self.base_address = module.lpBaseOfDll
             except AttributeError:
                 print(f'Encountered an AttributeError while loading the module and its base address.')
+                print(f'Possible Places of Concern:')
+                print(f'- Make sure {name} is still running.')
+                print(f'- You may be using a 32bit Python installation.')
+                print(f'Exiting')
+                exit()
+            except ctypes.ArgumentError:
+                print(f'Encountered an ArgumentError while loading the module and its base address.')
                 print(f'Possible Places of Concern:')
                 print(f'- Make sure {name} is still running.')
                 print(f'- You may be using a 32bit Python installation.')
