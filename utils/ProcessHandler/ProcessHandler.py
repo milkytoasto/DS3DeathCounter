@@ -7,14 +7,16 @@ from utils.ProcessHandler.Exceptions import *
 from ctypes import ArgumentError
 from pymem.exception import ProcessNotFound
 
-class ProcessHandler():
-    '''
+
+class ProcessHandler:
+    """
     Class that takes the name of a program and
     stores its base address and pymem object.
 
     Will also provide pointer objects when given
     a base address, offsets, and type.
-    '''    
+    """
+
     def __init__(self, name):
         self.name = name
         try:
@@ -34,11 +36,9 @@ class ProcessHandler():
     def get_pointer_address(self, base, offsets=False):
         addr = self.pm.read_ulonglong(base)
 
-        if not offsets: # No offsets, return address
+        if not offsets:  # No offsets, return address
             return addr
 
-        for i in offsets[:-1]: # Loop over all but the last
+        for i in offsets[:-1]:  # Loop over all but the last
             addr = self.pm.read_ulonglong(addr + i)
         return addr + offsets[-1]
-
-
