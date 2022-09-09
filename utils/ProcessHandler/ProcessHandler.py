@@ -1,11 +1,11 @@
+from ctypes import ArgumentError
+
 from pymem import Pymem
+from pymem.exception import ProcessNotFound
 from pymem.process import module_from_name
 
-from utils.ProcessHandler.Pointer import Pointer
-
 from utils.ProcessHandler.Exceptions import *
-from ctypes import ArgumentError
-from pymem.exception import ProcessNotFound
+from utils.ProcessHandler.Pointer import Pointer
 
 
 class ProcessHandler:

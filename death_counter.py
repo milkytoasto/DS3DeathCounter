@@ -7,15 +7,15 @@ this is achieved.
 Requires a x64 version of Python to be installed for this to work.
 """
 
+import logging
+
 from pymem.exception import MemoryReadError
 
+from utils.ProcessHandler import ProcessHandler
 from utils.ProcessHandler.Exceptions import (
     ProcessNotDiscoverable,
     ProcessUnexpectedlyClosed,
 )
-from utils.ProcessHandler import ProcessHandler
-
-import logging
 
 logging.basicConfig(
     format="[%(asctime)s]: %(message)s", datefmt="%d-%b-%y %H:%M:%S", level=logging.INFO

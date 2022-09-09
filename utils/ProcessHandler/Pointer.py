@@ -1,7 +1,8 @@
-from utils.ProcessHandler.Exceptions import *
+from functools import wraps
+
 from pymem.exception import ProcessError
 
-from functools import wraps
+from utils.ProcessHandler.Exceptions import *
 
 
 def check_process(fn):
