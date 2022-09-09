@@ -5,3 +5,4 @@ __pycache__/
 DS3Deaths.txt
 *.ico
 *.exe
+output/
