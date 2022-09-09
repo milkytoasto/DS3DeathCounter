@@ -15,6 +15,12 @@ from utils.ProcessHandler.Exceptions import (
 )
 from utils.ProcessHandler import ProcessHandler
 
+import logging
+
+logging.basicConfig(
+    format="[%(asctime)s]: %(message)s", datefmt="%d-%b-%y %H:%M:%S", level=logging.INFO
+)
+
 
 def get_deaths_from_pointer(pointer):
     return int.from_bytes(pointer.read(), "little")
@@ -38,7 +44,9 @@ def main():
     )
     deaths = get_deaths_from_pointer(death_count_pointer)
 
-    print(f"Discovered {process_name} process. Setting current deaths to {deaths}.")
+    logging.info(
+        f"Discovered {process_name} process. Setting current deaths to {deaths}."
+    )
     write_deaths(deaths)
 
     death_counter = 0
@@ -48,14 +56,14 @@ def main():
             death_counter = deaths
 
             write_deaths(deaths)
-            print(f"Updated death count written to file: {deaths}")
+            logging.info(f"Updated death count written to file: {deaths}")
 
 
 debug = False
 if __name__ == "__main__":
     while True:
         try:
-            print("Looking for process. . .")
+            logging.info("Looking for process. . .")
             while True:
                 try:
                     main()
@@ -70,4 +78,4 @@ if __name__ == "__main__":
                     pass
         except ProcessUnexpectedlyClosed:
             # Process closed.
-            print(f"Process terminated.")
+            logging.info(f"Process terminated.")
