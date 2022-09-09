@@ -8,7 +8,7 @@ Can be added as a source in OBS or used just for general curiosity I guess.
 # Usage
 Running the script will read from the currently running DS3 process and write to a file named `DS3Deaths.txt`
 
-You need an x64 install of Python in order to run this project. I will work on an executable file at some point (when I'm not being lazy).
+You need an x64 install of Python in order to run this project, or run the executable file in `Releases`
 
 # Contributing
 Feel free to open an issue / branch off of this project. You can also reach out to me over email at milkietoast@gmail.com if I seem to be absent.
