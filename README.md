@@ -14,3 +14,6 @@ You need an x64 install of Python in order to run this project, or run the execu
 Feel free to open an issue / branch off of this project. You can also reach out to me over email at milkietoast@gmail.com if I seem to be absent.
 
 Due to the simple nature of this, I don't anticipate there will need to be a lot of changes unless FromSoftware decides to update addresses again, but any help is appreciated.
+
+This repository contains a pre-commit config, make sure to install it with `pip install pre-commit` before committing changes. 
+Then run `pre-commit install` to install the hooks.
